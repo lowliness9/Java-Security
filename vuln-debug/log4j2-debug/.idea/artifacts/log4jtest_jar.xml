@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact name="log4jtest:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/log4jtest_jar</output-path>
+    <root id="root">
+      <element id="archive" name="log4jtest.jar">
+        <element id="module-output" name="log4j2-debug" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.14.0" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-core/2.14.0/log4j-core-2.14.0.jar" />
+        <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.14.0" />
+      </element>
+    </root>
+  </artifact>
+</component>

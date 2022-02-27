@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: log4j_dataOutboundByDNSLOG
+Class-Path: log4j_dataOutboundByDNSLOG-core-2.14.0.jar log4j_dataOutboundByDNSLOG-api-2.14.0.jar
+
