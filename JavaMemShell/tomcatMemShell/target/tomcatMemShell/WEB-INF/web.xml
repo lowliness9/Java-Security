@@ -1,0 +1,91 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+<!--  -->
+  <filter>
+    <filter-name>MyFilter</filter-name>
+    <filter-class>com.filter.MyFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>MyFilter</filter-name>
+    <url-pattern>/MyFilter</url-pattern>
+  </filter-mapping>
+<!---->
+
+
+<!---->
+  <filter>
+    <filter-name>CMDFilter</filter-name>
+    <filter-class>com.filter.CMDFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>CMDFilter</filter-name>
+    <url-pattern>/CMDFilter</url-pattern>
+  </filter-mapping>
+<!---->
+
+
+<!--  -->
+  <servlet>
+    <servlet-name>AddFilterShell</servlet-name>
+    <servlet-class>com.filter.AddFilterShell</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddFilterShell</servlet-name>
+    <url-pattern>/AddFilterShell</url-pattern>
+  </servlet-mapping>
+<!---->
+
+<!---->
+  <servlet>
+    <servlet-name>MyServlet</servlet-name>
+    <servlet-class>com.servlet.MyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyServlet</servlet-name>
+    <url-pattern>/MyServlet</url-pattern>
+  </servlet-mapping>
+<!---->
+
+<!--  -->
+  <servlet>
+    <servlet-name>AddServletShell</servlet-name>
+    <servlet-class>com.servlet.AddServletShell</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddServletShell</servlet-name>
+    <url-pattern>/AddServlet</url-pattern>
+  </servlet-mapping>
+<!---->
+
+<!---->
+  <listener>
+    <listener-class>com.listener.MyListener</listener-class>
+  </listener>
+<!--  -->
+
+
+<!--  <listener>-->
+<!--    <listener-class>com.listener.CMDListener</listener-class>-->
+<!--  </listener>-->
+<!--  <listener>-->
+<!--    <listener-class>com.listener.AddListenerShell</listener-class>-->
+<!--  </listener>-->
+
+
+  <servlet>
+    <servlet-name>AddListenerShell</servlet-name>
+    <servlet-class>com.listener.AddListenerShell</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddListenerShell</servlet-name>
+    <url-pattern>/AddListenerShell</url-pattern>
+  </servlet-mapping>
+
+
+</web-app>
