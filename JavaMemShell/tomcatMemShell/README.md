@@ -12,3 +12,5 @@
 ## Listener MemShell
 ## 小技巧
 快速生成base64字节码，编译后`cat cmd.class | base64`
+## 参考
+su18
